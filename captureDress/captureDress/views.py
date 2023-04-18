@@ -2,10 +2,51 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 
+import datetime
+
+
 def home(request):
-    print("test func is called")
+
+    isActive = False
+
+    if request.method == 'POST':
+        check = request.POST.get('check')
+        if check == "True":
+
+            isActive = True
+
+            print(check)
+            print(isActive)
+        # print(request.method)
+
+    else:
+        isActive = False
+
+    date = datetime.datetime.now()
+
+    name = 'Areeb'
+
+    list_of_courses = [
+        'Python', 'Django', 'MySQL', 'Redis', 'Git', 'Java', 'C++', 'OS', 'Node'
+    ]
+
+    data = {
+        'date': date,
+
+
+        # boolean value, True or False. Default is True.
+        'is_active': isActive,
+
+
+        'name': name, 		# string value. Default is '' (empty string).
+
+        # list of strings. Default is an empty list.
+        'list_of_courses': list_of_courses,
+    }
+
+    # print("Home func is called")
     # return HttpResponse("<h1>This is the response from the test function</h1>")
-    return render(request, "home.html", {})
+    return render(request, "home.html", data)
 
 
 def about(request):
