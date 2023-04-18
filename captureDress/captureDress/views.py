@@ -17,7 +17,10 @@ def home(request):
 
             print(check)
             print(isActive)
-        # print(request.method)
+        
+            # print(request.method)
+        else:
+            isActive=False
 
     else:
         isActive = False
