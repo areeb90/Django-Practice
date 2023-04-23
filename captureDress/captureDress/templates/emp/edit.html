@@ -15,29 +15,29 @@
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                  <h1 class="row justify-content-center">Add New Employee</h1>
+                  <h1 class="row justify-content-center">Edit Employee</h1>
                 <h2 class="text-center mb-4">Employee Details</h2>
-                <form method="post" action="/emp/add_emp/">
+                <form method="post" action="/emp/update_emp/{{emp.id}}">
                     {% csrf_token %}
                   <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" name="emp_name" placeholder="Enter name">
+                    <input type="text" class="form-control" id="name" name="emp_name" placeholder="Enter name" value="{{emp.name}}">
                   </div>
 
                   <div class="form-group">
                     <label for="dept">Department</label>
-                    <input type="text" class="form-control" id="dept" name="emp_dept" placeholder="Enter department">
+                    <input type="text" class="form-control" id="dept" name="emp_dept" placeholder="Enter department" value="{{emp.department}}">
                   </div>
 
                   <div class="form-group">
                     <label for="salary">Salary</label>
-                    <input type="text" class="form-control" id="salary" name="emp_sal" placeholder="Enter salary">
+                    <input type="text" class="form-control" id="salary" name="emp_sal" placeholder="Enter salary" value="{{emp.salary}}">
                   </div>
                   
                   <div class="form-group">
                     <label for="designation">Designation</label>
-                    <input type="text" class="form-control" id="designation" name="emp_desig" placeholder="Enter designation">
-                  </div>
+                    <input type="text" class="form-control" id="designation" name="emp_desig" placeholder="Enter designation" value="{{emp.designation}}">
+                </div>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
               </div>
